@@ -33,10 +33,20 @@ Install the Command Line Tools:
 ```
 xcode-select --install
 ```
-そのあとに再度
+そのあとに再度python3をインストールすると上手くいきます
 
+## もう一度versionを確認する
+```
+$ python --version
+Python 2.7.10
+
+$ python3 --version
+Python 3.7.1
+```
 * このサイトでは`virtualenv`や`pyenv`で環境を分ける方法が推奨されているがとりあえず無視してみる
+* 各プロジェクト毎に仮想ライブラリを作って開発環境を整えるものらしい。
 
+* Pythonから離脱する時は、`Ctrl+D`で抜けることができる
 
 ```{}
 import numpy as np
