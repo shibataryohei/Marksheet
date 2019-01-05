@@ -5,6 +5,7 @@ import cv2
 import pdf2image
 import pandas as pd
 import PyPDF2
+import datetime
 
 
 PDF_Files = []
@@ -128,4 +129,4 @@ for PNG_File in PNG_Files:
     Log.write(PNG_File) 
     Log.close()
     
-DataFrame.to_csv('CSV/Test3.csv')
+DataFrame.to_csv('CSV/'+datetime.datetime.today().strftime("%Y%m%d%H%M%S")+'.csv')
