@@ -6,6 +6,10 @@ import pdf2image
 import pandas as pd
 import PyPDF2
 import datetime
+import shutil
+
+shutil.rmtree('Temp/')
+os.mkdir('Temp')
 
 
 PDF_Files = []
@@ -21,16 +25,16 @@ for Filename in PDF_Files:
         Page_Obj = PDF_Reader.getPage(Page_Number)
         PDF_Writer.addPage(Page_Obj)
   
-PDF_Output = open('PDF_Output/Marksheet_Merge.pdf', 'wb')
+PDF_Output = open('Temp/Marksheet_Merge.pdf', 'wb')
 PDF_Writer.write(PDF_Output)
 PDF_Output.close()
 
 
 from pdf2image import convert_from_path
-Marksheet_PDFs = convert_from_path('PDF_Output/Marksheet_Merge.pdf')
+Marksheet_PDFs = convert_from_path('Temp/Marksheet_Merge.pdf')
 i = 0
 for Marksheet_PDF in Marksheet_PDFs:
-    Marksheet_PDF.save('PNG_Input/Marksheet{}.png'.format(i), 'png')
+    Marksheet_PDF.save('Temp/Marksheet{}.png'.format(i), 'png')
     i += 1
     
 Marker_ANS = cv2.imread('Image/Marker_ANS.png', 0)
@@ -39,15 +43,19 @@ Marker_ID = cv2.imread('Image/Marker_ID.png', 0)
 
 PNG_Files = []
 
-for Filename in os.listdir('/Users/Ryohei/Git/Marksheet/PNG_Input'):
+for Filename in os.listdir('Temp'):
     if Filename.endswith('.png'):
         PNG_Files.append(Filename)
         
         
 DataFrame = pd.DataFrame()
+PNG_File = 'Marksheet29.png'
 
 for PNG_File in PNG_Files:
-    Marksheet = cv2.imread('PNG_Input/'+PNG_File, 0)
+    Log = open('Temp/Log.text', 'a') 
+    Log.write(PNG_File+'\n') 
+    Log.close()
+    Marksheet = cv2.imread('Temp/'+PNG_File, 0)
     Marker_Match = cv2.matchTemplate(Marksheet, Marker_ID, cv2.TM_CCOEFF_NORMED)
     Marker_Location = np.where( Marker_Match >= 0.7 ) 
     
@@ -70,7 +78,7 @@ for PNG_File in PNG_Files:
     ID_Blur = cv2.GaussianBlur(ID_Resize, (25,25), 0)
     RetVal, ID_Binarization = cv2.threshold(ID_Blur, 50, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)
     ID_Reverse = 255 - ID_Binarization
-    cv2.imwrite('Temp/Answer.png',ID_Reverse)
+    cv2.imwrite('Temp/Answer_'+PNG_File, ID_Reverse)
     
     Result = []
     for col in range(n_col):
@@ -125,8 +133,8 @@ for PNG_File in PNG_Files:
     
     Data = pd.DataFrame({'Value': Value_ANS,'Variable': ['Desire', 'Constipation', 'Incontinence', 'Soiling'],'Date': Date,'ChartID': ChartID,'PATH': PNG_File})
     DataFrame = DataFrame.append(Data)
-    Log = open('Log.text', 'w') 
-    Log.write(PNG_File) 
+    Log = open('Temp/Log.text', 'a') 
+    Log.write(PNG_File+'\n') 
     Log.close()
     
 DataFrame.to_csv('CSV/'+datetime.datetime.today().strftime("%Y%m%d%H%M%S")+'.csv')
