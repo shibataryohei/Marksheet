@@ -9,6 +9,7 @@ Name
 
 ## VS. 
 
+## Requirement
 
 ## Usage
 * [PythonとOpenCVで簡易OMR（マークシートリーダ）を作る](https://qiita.com/sbtseiji/items/6438ec2bf970d63817b8)
