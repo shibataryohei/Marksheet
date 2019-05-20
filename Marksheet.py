@@ -44,7 +44,7 @@ for Marksheet_PDF in Marksheet_PDFs:
 # `Image/Marker_ANS.png`
 # `Image/Marker_ID.png`としておく
 
-# グレースケール ( mode = 0 ) でファイルを読み込む
+# グレースケール (mode = 0) でファイルを読み込む
 Marker_ANS = cv2.imread('Image/Marker_ANS.png', 0)
 Marker_ID = cv2.imread('Image/Marker_ID.png', 0)
 

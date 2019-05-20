@@ -1,3 +1,42 @@
+import os
+import numpy as np
+import cv2
+import pdf2image
+import pandas as pd
+import PyPDF2
+import datetime
+import shutil
+
+shutil.rmtree('Temp/')
+os.mkdir('Temp')
+
+PDF_Writer = PyPDF2.PdfFileWriter()
+for Filename in os.listdir('/Users/Ryohei/Git/Marksheet/PDF_Input'):
+    if Filename.endswith('.pdf'):
+        PDF_Files.append(Filename)
+ 
+for Filename in PDF_Files:
+    PDF_Files_Obj = open('PDF_Input/'+Filename, 'rb')
+    PDF_Reader = PyPDF2.PdfFileReader(PDF_Files_Obj)
+    for Page_Number in range(PDF_Reader.numPages):
+        Page_Obj = PDF_Reader.getPage(Page_Number)
+        PDF_Writer.addPage(Page_Obj)
+  
+PDF_Output = open('Temp/Marksheet_Merge.pdf', 'wb')
+PDF_Writer.write(PDF_Output)
+PDF_Output.close()
+
+
+from pdf2image import convert_from_path
+Marksheet_PDFs = convert_from_path('Temp/Marksheet_Merge.pdf')
+i = 0
+for Marksheet_PDF in Marksheet_PDFs:
+    Marksheet_PDF.save('Temp/Marksheet{}.png'.format(i), 'png')
+    i += 1
+    
+Marker_ANS = cv2.imread('Image/Marker_ANS.png', 0)
+Marker_ID = cv2.imread('Image/Marker_ID.png', 0)
+
 PNG_File = PNG_Files[0]
 Marksheet = cv2.imread('PNG_Input/'+PNG_File, 0)
 Marker_Match = cv2.matchTemplate(Marksheet, Marker_ID, cv2.TM_CCOEFF_NORMED)
@@ -79,6 +118,7 @@ for x in nrow_ANS:
     
 Data = pd.DataFrame({'Value': Value_ANS,'Variable': ['Desire', 'Constipation', 'Incontinence', 'Soiling'],'Date': Date,'ChartID': ID,'PATH': PNG_File})
 DataFrame = DataFrame.append(Data)
+
 Log = open('Log.text', 'w') 
 Log.write(PNG_File) 
 Log.close
