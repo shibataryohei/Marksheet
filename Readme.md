@@ -3,20 +3,26 @@ Name
 
 直腸肛門奇形研究会が推奨する臨床的排便機能評価スコアを、自作マークシートを使って、臨床情報を集計しデータ化するシステムを開発しました。
 
-## Description
+![](Evacuation_Score.png)
 
-## Demo
+# Description
 
-## VS. 
+# Demo
 
-## Requirement
+# VS. 
+
+# Requirement
 * macOS
 * Python 2.7+
 
-### Terminalからinstallする必要があるライブラリ
+## Terminalからinstallする必要があるライブラリ
 * OpenCV: 画像処理やパターン認識などを行う
 * pdf2image: マークシートをスキャンしたPDFをPNGに変換する
 * PyPDF2: 複数のPDFファイルを連結して1つにする
+
+もしPython初心者の方でつまずくことがあった場合は、下記の記事を参考にしてもらえるといいかもしれません。
+
+[Python初心者がnumpyとOpenCVをインストールするためにしたこと](https://www.pediatricsurgery.site/entry/2018/12/24/130442)
 
 ```bash
 # OpenCV
@@ -29,9 +35,16 @@ pip install pdf2image --user
 pip install pypdf2
 ```
 
+## Marksheet
+マークシートは`Marksheet.pptx`を印刷してください。印刷する紙は、書きやすさや消しゴムを使った時の消え方などを考えると、上質紙の方が良いと思われます。下記のコピー用紙がちょうどいい塩梅かと思いました。
+
+[コクヨ コピー用紙 A4 スーパーファイングレード 厚紙用紙 50枚 インクジェットプリンタ用紙 KJ-M15A4-50](https://www.amazon.co.jp/gp/product/B002U48XC6/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
 
 
-## Usage
+
+
+
+# Usage
 * [PythonとOpenCVで簡易OMR（マークシートリーダ）を作る](https://qiita.com/sbtseiji/items/6438ec2bf970d63817b8)
 * [Python初心者がnumpyとOpenCVをインストールするためにしたこと](https://www.pediatricsurgery.site/entry/2018/12/24/130442)
 * [【PythonとOpenCVで簡易OMR(マークシートリーダ)を作る】を初心者が理解するために①](https://www.pediatricsurgery.site/entry/2018/12/24/154519)
@@ -40,30 +53,24 @@ Python](https://www.pediatricsurgery.site/entry/2018/12/25/231014)
 * [【PythonとOpenCVで簡易OMR(マークシートリーダ)を作る】を初心者が理解するために③](https://www.pediatricsurgery.site/entry/2018/12/29/195859)
 
 
-## Install
-もしPython初心者の方でつまずくことがあった場合は、下記の記事を参考にしてもらえるといいかもしれません。
-
-[Python初心者がnumpyとOpenCVをインストールするためにしたこと](https://www.pediatricsurgery.site/entry/2018/12/24/130442)
-
-### 1. numpyのinstall
-```python
-import numpy as np
-```
-
-### 2. OpenCVのinstall
-```bash
-pip install opencv-python
-```
+# Install
 
 
-## Contribution
 
-## Licence
+# Contribution
+
+# Licence
 
 [MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
 
-## Author
+# Author
 
 [tcnksm](https://github.com/tcnksm)
 
 # Acknowledgments
+
+# Update
+* ERRORをcsvに加えられるようにする
+* DateとIDそれぞれで
+* Area_sumが閾値以下しかない->unmarked
+* Area_sumが大きいものが2つ->max*0.9->duplication?
