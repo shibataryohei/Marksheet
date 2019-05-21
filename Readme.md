@@ -56,13 +56,27 @@ pip install numpy
 ![](Image/Download_ZIP.png)
 
 # Usage
+1. `Markshee/PDF_Input`のフォルダにスキャンしたPDFファイルを移動させておく (複数のPDFファイルでもOK)
+2. `ターミナル`を起動
+3. `clone`もしくはダウンロードしたこのレポジトリがあるディレクトリに移る
 
+```bash
+cd "ディレクトリ名"/Marksheet
+```
+
+4. `Marksheet.py`を実行する (Python 2.7)
+```
+python Marksheet.py
+```
+
+5. CSV_OutputにCSVファイルが生成されていることを確認する
 
 # Licence
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
+以下の条件を満たす限り、自由な複製・配布・修正を無制限に許可します。
+* 上記の著作権表示と本許諾書を、ソフトウェアの複製または重要な部分に記載する
+* 本ソフトウェアは無保証である。自己責任で使用する。
 
-# Author
-[tcnksm](https://github.com/tcnksm)
+詳しくは`License.md`を参照ください。
 
 # Recommendation
 Python初心者の方で、インストールやプログラムの内容などの理解が足りない方は下記のブログ記事が役に立つかもしれません。
