@@ -52,7 +52,6 @@ for Filename in os.listdir('Temp'):
         
 # Get list of PNG files in PNG_Input       
 DataFrame = pd.DataFrame()
-PNG_File = 'Marksheet29.png'
 
 for PNG_File in PNG_Files:
     Log = open('Temp/Log.text', 'a') 
@@ -162,4 +161,4 @@ for PNG_File in PNG_Files:
     Log.close()
     
 # Write csv file
-DataFrame.to_csv('CSV/'+datetime.datetime.today().strftime("%Y%m%d%H%M%S")+'.csv')
+DataFrame.to_csv('CSV_Output/'+datetime.datetime.today().strftime("%Y%m%d%H%M%S")+'.csv')
