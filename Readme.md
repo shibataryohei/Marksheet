@@ -9,12 +9,12 @@ Name
 * macOS (Mojave推奨)
 * Python 2.7+: 現在3系に移行中
 
-## Installが不要なライブラリ (標準ライブラリ)
+## インストールが不要なライブラリ (標準ライブラリ)
 * os: OSに依存した機能を使うためのライブラリ
 * datetime: 時間に関するデータを取り扱うためのライブラリ
 * shutil: ファイルのバッチ処理のためのライブラリ
 
-## Terminalからinstallする必要があるライブラリ
+## Terminalからインストールするライブラリ
 * OpenCV: 画像処理やパターン認識などを行う
 * pdf2image: マークシートをスキャンしたPDFをPNGに変換する
 * PyPDF2: 複数のPDFファイルを連結して1つにする
@@ -25,7 +25,8 @@ Name
 
 [Python初心者がnumpyとOpenCVをインストールするためにしたこと](https://www.pediatricsurgery.site/entry/2018/12/24/130442)
 
-`pip`がinstallされていない場合は`pip`をinstallしてください。
+`pip`がインストールされていない場合は`pip`をインストールしてください。  
+
 [Pythonのパッケージ管理システムpipの使い方](https://note.nkmk.me/python-pip-usage/)
 
 ```bash
@@ -50,11 +51,12 @@ pip install numpy
 
 [コクヨ コピー用紙 A4 スーパーファイングレード 厚紙用紙 50枚 インクジェットプリンタ用紙 KJ-M15A4-50](https://www.amazon.co.jp/gp/product/B002U48XC6/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
 
+# Install
+このレポジトリの右上にある`Clone or download`のタブをクリックして`Download ZIP`を選択してZIPファイルをダウンロードしてください。GitHubを使える方は、このレポジトリを`clone`してもらえればと思います。  
+![](Image/Download_ZIP.png)
+
 # Usage
 
-# Install
-
-# Contribution
 
 # Licence
 
