@@ -59,7 +59,6 @@ pip install numpy
 
 
 # Licence
-
 [MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
 
 # Author
@@ -75,6 +74,8 @@ Python](https://www.pediatricsurgery.site/entry/2018/12/25/231014)
 * [【PythonとOpenCVで簡易OMR(マークシートリーダ)を作る】を初心者が理解するために③](https://www.pediatricsurgery.site/entry/2018/12/29/195859)
 
 # Acknowledgments
+[PythonとOpenCVで簡易OMR（マークシートリーダ）を作る](https://qiita.com/sbtseiji/items/6438ec2bf970d63817b8)  
+基本的にはこのマークシートは[@sbtseiji](https://qiita.com/sbtseiji)さんの記事を参考にして作らせていただきました。本当にありがとうございます。
 
 # Update
 * Python 3系への移行
