@@ -1,0 +1,8 @@
+---
+title: "Untitled"
+output: powerpoint_presentation
+---
+
+![](/Users/Ryohei/Dropbox/Presentation/2019/JSPS_Marksheet/Slide_JSPS2019_Marksheet/Slide1.png)
+
+![](/Users/Ryohei/Dropbox/Presentation/2019/JSPS_Marksheet/Slide_JSPS2019_Marksheet/Slide2.png)
